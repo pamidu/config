@@ -29,8 +29,10 @@ func (c *config) loadfile(){
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		//split key and value 
-       	stringSlice := strings.Split(scanner.Text(),"-")
-    	c.m[stringSlice[0]]=stringSlice[1]
+		if scanner.Text()!=""{
+       		stringSlice := strings.Split(scanner.Text(),"-")
+    		c.m[stringSlice[0]]=stringSlice[1]
+		}
 	}
 }
 
